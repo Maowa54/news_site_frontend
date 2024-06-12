@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Stock Adjustment</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempus-dominus/5.39.0/css/tempus-dominus.min.css">
+
+    <style>
+        .navbar {
+            background-color: rgb(53, 31, 247);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            z-index: 1000;
+            height: 100px;
+        }
+        h3 {
+            height: 40px;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        .gap-small {
+            margin-right: 10px;
+        }
+        .div2 {
+            padding-top: 10px;
+        }
+        .table thead th {
+            text-align: center;
+        }
+        .table tbody td {
+            text-align: center;
+        }
+        .status {
+            display: inline-block;
+            width: 100px;
+            color: white;
+            border-radius: 5px;
+            padding: 2px 5px;
+        }
+        .stock-in {
+            background-color: #8ADE57;
+        }
+        .stock-out {
+            background-color: #F03333;
+        }
+        .low-stock {
+            background-color: #F0A433;
+        }
+        .sidenav {
+            height: 100%;
+            width: 220px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            padding-top: 90px; 
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+        .sidenav a {
+            white-space: nowrap;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 20px; 
+            color: #111;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidenav a i {
+            margin-right: 10px;
+        }
+        .sidenav a:hover {
+            background-color: #f1f1f1;
+            color: #007BFF;
+        }
+        .main {
+            margin-left: 240px; 
+            padding: 20px;
+            transition: margin-left 0.5s;
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="d-flex align-items-center">
+            <img src="Panda-pos 1.png" alt="logo" style="height: 70px;">
+        </div>
+        <div id="clock"></div>
+        <div>
+            <i class="fa fa-bell" style="font-size: 30px; color: white;"></i>
+        </div>
+    </nav>
+
+    <div class="sidenav">
+        <a href="#home"><i class="fas fa-tachometer-alt" style="color: #3498db;"></i>Dashboard</a>
+        <a href="#services"><i class="fas fa-users-cog" style="color: #e74c3c;"></i>User Management</a>
+        <a href="#clients"><i class="fas fa-users" style="color: #f39c12;"></i>People</a>
+        <a href="#contact"><i class="fas fa-box" style="color: #8e44ad;"></i>Product</a>
+        <a href="#contact"><i class="fas fa-sliders-h" style="color: #2ecc71;"></i>Adjustment</a>
+        <a href="#contact"><i class="fas fa-random" style="color: #16a085;"></i>Transfer</a>
+        <a href="#contact"><i class="fas fa-cogs" style="color: #d35400;"></i>Settings</a>
+        <a href="#contact"><i class="fas fa-sign-out-alt" style="color: #c0392b;"></i>Logout</a>
+    </div>
+
+
+    <div class="main">
+        <div class="row" style="box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); padding: 10px 0;">
+            <div class="col-6">
+                <h3>Stock Adjustment</h3>
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+                <button class="btn gap-small" style="background-color: rgba(53, 31, 247, 1); width: 110px; height: 39px; color: white;" data-toggle="modal" data-target="#addNewModal">Add New</button>
+                <select class="form-select" style="width: 160px; height: 39px; margin-right: 20px;">
+                    <option>Business Name 1</option>
+                    <option>Business Name 2</option>
+                    <option>Business Name 3</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row" style="box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); padding: 10px;">
+            <div class="col-2 d-flex align-items-center">
+                <button class="btn gap-small" style="font-size: 16px; font-weight: 400; border-radius: 4px; border: 1px solid #2B2F67; box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);">10</button>
+                <button class="btn gap-small" style="font-size: 16px; font-weight: 400; border-radius: 4px; border: 1px solid #2B2F67; box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);">Export</button>
+            </div>
+            <div class="col-10 d-flex align-items-center justify-content-end">
+                <input type="datetime-local" class="form-control" style="width: 200px; height: 39px; margin-right: 10px;">
+                <select class="form-select gap-small" style="width: 160px; height: 39px;">
+                    <option>Transaction Type</option>
+                    <option>Stock Out</option>
+                    <option>Stock In</option>
+                    <option>Low Stock</option>
+                </select>
+                <div class="input-group" style="width: 230px;">
+                    <input type="search" class="form-control rounded" placeholder="Search here" aria-label="Search" aria-describedby="search-addon">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Product Code</th>
+                        <th>Transaction Type</th>
+                        <th>Stock</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>765428</td>
+                        <td><span class="status stock-in">Stock In</span></td>
+                        <td>150</td>
+                        <td>12-May-2024</td>
+                        <td><i class="bi bi-three-dots-vertical"></i></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>123456</td>
+                        <td><span class="status stock-out">Stock Out</span></td>
+                        <td>0</td>
+                        <td>13-May-2024</td>
+                        <td><i class="bi bi-three-dots-vertical"></i></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>123456</td>
+                        <td><span class="status low-stock">Low Stock</span></td>
+                        <td>20</td>
+                        <td>14-May-2024</td>
+                        <td><i class="bi bi-three-dots-vertical"></i></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>123456</td>
+                        <td><span class="status stock-out">Stock Out</span></td>
+                        <td>0</td>
+                        <td>13-May-2024</td>
+                        <td><i class="bi bi-three-dots-vertical"></i></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>123456</td>
+                        <td><span class="status low-stock">Low Stock</span></td>
+                        <td>20</td>
+                        <td>14-May-2024</td>
+                        <td><i class="bi bi-three-dots-vertical"></i></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>765428</td>
+                        <td><span class="status stock-in">Stock In</span></td>
+                        <td>150</td>
+                        <td>12-May-2024</td>
+                        <td><i class="bi bi-three-dots-vertical"></i></td>
+                    </tr>
+                   
+                    </tbody>
+                    </table>
+                    </div>
+                    </div>
+                    
+    <div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="addNewModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNewModalLabel">Add New Stock Adjustment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   
+                    <form>
+                        <div class="form-group">
+                            <label for="productName">Product Name</label>
+                            <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+                        </div>
+                        <div class="form-group">
+                            <label for="transactionType">Transaction Type</label>
+                            <select class="form-control" id="transactionType">
+                                <option>Stock Out</option>
+                                <option>Stock In</option>
+                                <option>Low Stock</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date and Time</label>
+                            <input type="datetime-local" class="form-control" id="date">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" style="background-color: red;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" style="background-color: green;" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                    </body>
+                    </html>

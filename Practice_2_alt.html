@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Stock Adjustment</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempus-dominus/5.39.0/css/tempus-dominus.min.css">
+
+    <style>
+        :root {
+            --main-bg-color: #e0f7e9; /* pastel light green */
+            --navbar-bg-color: #a0d9b1; /* slightly darker pastel green */
+            --hover-color: #b3e3c1; /* hover color in pastel green */
+            --border-color: #9fc9a9; /* border color in pastel green */
+            --text-color: #404476; /* text color */
+        }
+
+        .navbar {
+            background-color: var(--navbar-bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); 
+            height: 100px;
+        }
+
+        .gap-small {
+            margin-right: 100px;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 220px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: var(--main-bg-color);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            padding-top: 10px;
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+
+        .sidenav a, .sidenav .dropdown-btn {
+            white-space: nowrap;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 17px; 
+            color: var(--text-color);
+            display: block;
+            transition: 0.3s;
+            border: none;
+            background: none;
+        }
+
+        .sidenav a i, .sidenav .dropdown-btn i {
+            margin-right: 10px;
+        }
+
+        .sidenav a:hover, .sidenav .dropdown-btn:hover {
+            background-color: var(--hover-color);
+            color: black;
+        }
+
+        .main {
+            margin-left: 240px; 
+            padding: 20px;
+            transition: margin-left 0.5s;
+        }
+
+        .dropdown-container {
+            padding-left: 15px;
+        }
+
+        .dropdown-container a {
+            padding: 10px 20px;
+            font-size: 15px;
+            display: block;
+            color: var(--text-color);
+        }
+        .pos-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .pos-text p {
+            text-align: center;
+            
+            font-family: Inter;
+            font-size: 24px;
+            font-weight: 500; 
+            width: 117px;
+            height: 45px;
+            border-radius: 5px;
+            border: 3px solid var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 0; /* Remove margin to control spacing */
+            transform: translateY(0px); /* Adjust this value to move down */
+        }
+
+        p {
+            text-align: center;
+            color: var(--text-color); 
+            font-family: Inter;
+            font-size: 24px;
+            font-weight: 500; 
+            width: 117px;
+            height: 45px;
+            border-radius: 5px;
+            border: 3px solid var(--text-color);
+            opacity: 0.9;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gap-small-btn {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="align-items-center d-flex ml-auto justify-content-between">
+            <div class="pos-text">
+                <p class="gap-small">POS</p>
+            </div>
+            <img src="icon.png" style="height: 54px; width: 64px; flex-shrink: 0;" alt="icon">
+        </div>
+    </nav>
+
+    <div class="sidenav">
+        <img src="panda2.png" alt="logo" class="center">
+        <a href="#home"><i class="fas fa-tachometer-alt" style="color: #3498db;"></i>Dashboard</a>
+        <a href="#services"><i class="fas fa-users-cog" style="color: #e74c3c;"></i>User Management</a>
+        <a href="#clients"><i class="fas fa-users" style="color: #f39c12;"></i>People</a>
+        <button class="dropdown-btn"><i class="fas fa-box" style="color: #8e44ad;"></i>Product <i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-container">
+            <a href="#">• All Products</a>
+            <a href="#">• Add Products</a>
+            <a href="#">• Category</a>
+            <a href="#">• Print Labels</a>
+            <a href="#">• Brand</a>
+            <a href="#">• Unit</a>
+            <a href="#">• Warehouse</a>
+            <a href="#">• Measurement</a>
+        </div>   
+        <a href="#contact"><i class="fas fa-sliders-h" style="color: #2ecc71;"></i>Adjustment</a>
+        <a href="#contact"><i class="fas fa-random" style="color: #16a085;"></i>Transfer</a>
+        <a href="#home"><i class="fas fa-file-alt" style="color: #3498db;"></i>Quotation</a>
+        <a href="#home"><i class="fas fa-shopping-cart" style="color: #3498db;"></i>Purchases</a>
+        <a href="#home"><i class="fas fa-dollar-sign" style="color: #3498db;"></i>Sales</a>
+        <a href="#home"><i class="fas fa-undo" style="color: #3498db;"></i>Sales Return</a>
+        <a href="#contact"><i class="fas fa-undo-alt" style="color: #c0392b;"></i>Purchases Return</a>
+        <a href="#contact"><i class="fas fa-book" style="color: #c0392b;"></i>Accounting</a>
+        <a href="#contact"><i class="fas fa-cogs" style="color: #d35400;"></i>Settings</a>
+        <a href="#contact"><i class="fas fa-chart-bar" style="color: #d35400;"></i>Reports</a>
+    </div>
+
+    <div class="main">
+        <div>
+            <h3>Print Labels</h3>
+        </div>
+        <hr> 
+        <div style="padding: 10px;" class="d-flex justify-content-between align-items-center">
+            <select class="form-select gap-small-dropdown" style="width: 180px;">
+                <option>Product Category</option>
+                <option>Product Category</option>
+                <option>Product Category</option>
+            </select>
+            <select class="form-select gap-small-dropdown" style="width: 150px;">
+                <option>Product Type</option>
+                <option>Product Type</option>
+                <option>Product Type</option>
+            </select>
+            <select class="form-select gap-small-dropdown" style="width: 150px;">
+                <option>Product Brand</option>
+                <option>Product Brand</option>
+            </select>
+            <select class="form-select gap-small-dropdown" style="width: 210px;">
+                <option>Additional Information</option>
+                <option>Additional Information</option>
+            </select>
+            <button class="btn gap-small-btn" style="border-radius: 100px;width: 100px; background: #707AD5; color: white;">Apply</button>
+            <button class="btn gap-small-btn" style="border-radius: 148px; width: 100px; border: 2px solid #2B2F67; background: #FFF;">Clear</button>
+        </div>
+        <div style="padding: 20px;">
+            <label for="product">Product Code:</label>
+            <input type="text" id="product" name="product" placeholder="Write Product Code Here" style="width: 220px;"><br><br>
+        </div>
+        <div class="d-flex align-items-center ml-auto justify-content-end">
+            <button class="btn gap-small-btn" style="color: white; width: 113px; height: 40px; border-radius: 5px; background: #FF4242;">Reset</button>
+            <button class="btn gap-small-btn" style="color: white; width: 113px; height: 40px; border-radius: 5px; background: #45DB78;">Print</button>
+        </div>
+    </div>
+</body>
+</html>

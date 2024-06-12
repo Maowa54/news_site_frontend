@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Practice</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempus-dominus/5.39.0/css/tempus-dominus.min.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+        .navbar {
+            background-color: rgb(95, 86, 207);
+            color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); 
+            margin-left: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       
+  
+       
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: white;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidenav a, .sidenav  {
+            white-space: nowrap;
+            padding: 10px 10px; 
+            color: #111;
+            display: block;
+           
+        }
+        .sidenav a i, .sidenav {
+            margin-right: 10px;
+        }
+        
+        .sidenav a:hover, .sidenav  {
+            background-color: white;
+            color: black
+        }
+        .main {
+            margin-left: 240px; 
+            padding: 20px;
+            transition: margin-left 0.5s;
+        }
+       
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       
+        .custom_div{
+            width: 200px;
+            flex-shrink: 0;
+            height: 180px;
+            background: #FFF;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.20);
+            }
+          
+     
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg ">
+        <div class="d-flex align-items-center ml-5" style="font-family: Inter;">
+           <h1>Dashboard</h1> 
+        </div>
+      
+            <div class=" d-flex align-items-center">
+                <img src="icon.png" style="height: 50px; width: 60px;" alt="icon">
+              
+            </div>
+        
+    </nav>
+
+    <div class="sidenav" style="">
+    
+        <h4 style="padding: 10px; text-align: center;">Administrator</h4>
+        <hr>
+        <a href="#home"><i class="fas fa-tachometer-alt" style="color: black"></i>Dashboard</a>
+        <a href="#post"><i class="fas fa-pencil-alt" style="color: black"></i>Post</a>
+        <a href="#pages"><i class="fas fa-file-alt" style="color: black"></i>Pages</a>
+        <a href="#category"><i class="fas fa-th-list" style="color: black"></i>Category</a>
+        <a href="#menu"><i class="fas fa-bars" style="color: black"></i>Menu</a>
+        <a href="#advertisement"><i class="fas fa-bullhorn" style="color: black"></i>Advertisement</a>
+        <a href="#tracking-code"><i class="fas fa-code" style="color: black"></i>Tracking Code</a>
+        <a href="#settings"><i class="mb-5 fas fa-cog" style="color: black"></i>Settings</a>
+   
+        
+            <hr>
+        
+        
+         <footer class="footer-fixed">
+            <a href="#user"><i class="fas fa-user" style="color: black"></i>User</a>
+            <a href="#theme-settings"><i class="fas fa-paint-brush" style="color: black"></i>Theme Settings</a>
+
+
+            
+
+         </footer>
+        
+      
+
+
+    </div>
+
+
+    <div class="">
+         <div class="row custom_div center align-items-center mt-5 mb-5 ">
+            <div class="col-12  align-items-center text-center">
+                <i class="fas fa-user" style="font-size: 24px;  color: black;padding-top: 20px; margin-bottom: 30px;"></i>
+
+
+            </div>
+
+            <h6 style="text-align:center ; margin-bottom: 10px;"> Visitors</h6>
+            <h5 style="text-align: center; font-weight: 500;">100K</h5>
+
+         </div>
+         <hr style="border: 1px solid black;">
+
+
+         <div class="row w-100 d-flex justify-content-between">
+            <div class="col-12 col-md-4 ">
+                <div class="mt-5 mb-4">
+                    <h4 style="font-family: Inter; font-weight: 600;">Latest News</h4>
+
+                </div>
+                
+                <div class="mt-2 d-flex">
+                    <img style="height: 44px; width: 80px;" src="news.jpg" alt="news">
+                    <p > ২৩ নাবিককে মুক্ত করতে বিশেষ অভিযানের প্রস্তাব, বিশেষজ্ঞদের ‘না’</p>
+
+                </div>
+                <div class="mt-2 d-flex">
+                    <img style="height: 44px; width: 80px;" src="news.jpg" alt="news">
+                    <p > ২৩ নাবিককে মুক্ত করতে বিশেষ অভিযানের প্রস্তাব, বিশেষজ্ঞদের ‘না’</p>
+
+                </div>
+                <div class="mt-2 d-flex">
+                    <img style="height: 44px; width: 80px;" src="news.jpg" alt="news">
+                    <p > ২৩ নাবিককে মুক্ত করতে বিশেষ অভিযানের প্রস্তাব, বিশেষজ্ঞদের ‘না’</p>
+
+                </div>
+                <div class="mt-2 d-flex">
+                    <img style="height: 44px; width: 80px;" src="news.jpg" alt="news">
+                    <p > ২৩ নাবিককে মুক্ত করতে বিশেষ অভিযানের প্রস্তাব, বিশেষজ্ঞদের ‘না’</p>
+
+                </div>
+              
+                
+
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="mt-5 mb-4">
+                    <h4 style="font-family: Inter; font-weight: 600;">Latest News</h4>
+
+                </div>                <div class="mt-2 d-flex">
+                    <img style="height: 44px; width: 80px;" src="news.jpg" alt="news">
+                    <p > ২৩ নাবিককে মুক্ত করতে বিশেষ অভিযানের প্রস্তাব, বিশেষজ্ঞদের ‘না’</p>
+
+                </div>
+                <div class="mt-2 d-flex">
+                    <img style="height: 44px; width: 80px;" src="news.jpg" alt="news">
+                    <p > ২৩ নাবিককে মুক্ত করতে বিশেষ অভিযানের প্রস্তাব, বিশেষজ্ঞদের ‘না’</p>
+
+                </div>
+                <div class="mt-2 d-flex">
+                    <img style="height: 44px; width: 80px;" src="news.jpg" alt="news">
+                    <p > ২৩ নাবিককে মুক্ত করতে বিশেষ অভিযানের প্রস্তাব, বিশেষজ্ঞদের ‘না’</p>
+
+                </div>
+                <div class="mt-2 d-flex">
+                    <img style="height: 44px; width: 80px;" src="news.jpg" alt="news">
+                    <p > ২৩ নাবিককে মুক্ত করতে বিশেষ অভিযানের প্রস্তাব, বিশেষজ্ঞদের ‘না’</p>
+
+                </div>
+
+
+            </div>
+            <div class="col-12 col-md-3 mt-5 " style="width: 250px;height: 350px;border-radius: 20px;box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.20);">
+            <h4 style="text-align: center;font-family: Inter; font-weight: 600;"> Top View</h4>
+                
+
+
+            </div>
+         </div>
+        
+
+       
+        </div>
+
+
+
+
+
+       
+
+        
+                    
+         </body>
+
+
+
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </html>
